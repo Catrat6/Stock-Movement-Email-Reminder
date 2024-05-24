@@ -45,13 +45,13 @@ def call_stock_api(stock, api_key, endpoint):
 
     stock_call = requests.get(endpoint, params=stock_params)
     stock_call.raise_for_status()
-    dataS = stock_call.json()
+    dataS = stock_call.json()['Time Series (Daily)']
+    dataS_list = [value for (key, value) in dataS.items()]
+    yesterday_data = dataS_list[0]
+    yesterday_data_plus = dataS_list[1]
 
-    print(dataS)
-
-    # This part needs to be changed but waiting for more API calls tomorrow, they only allow 25 a day :/
-    one_day_before_yesterday = round(float(dataS['Time Series (Daily)']['2024-05-21']['4. close']))
-    yesterday = round(float(dataS['Time Series (Daily)']['2024-05-22']['4. close']))
+    one_day_before_yesterday = round(float(yesterday_data_plus['4. close']))
+    yesterday = round(float(yesterday_data['4. close']))
 
     return yesterday, one_day_before_yesterday
 
