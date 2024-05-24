@@ -49,6 +49,7 @@ def call_stock_api(stock, api_key, endpoint):
 
     print(dataS)
 
+    # This part needs to be changed but waiting for more API calls tomorrow, they only allow 25 a day :/
     one_day_before_yesterday = round(float(dataS['Time Series (Daily)']['2024-05-21']['4. close']))
     yesterday = round(float(dataS['Time Series (Daily)']['2024-05-22']['4. close']))
 
