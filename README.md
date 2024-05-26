@@ -12,11 +12,9 @@ effective.
 What this script does:
 
 - Checks the price of a stock using this endpoint https://www.alphavantage.co/
-- The project actually called to only return news on a significant movement but I did not like that so we just
-return news regardless while also building a string that notifies the user of the price. If the price does not move more than five percent over 
-the past 24 hours it informs the user it was stable, but still searches for stories and pulls back 3.
+- Searches https://newsapi.org endpoint for 3 most recent stories to display along with the reading
 - If There are not 3 returned stories the script returns as many as it can.
-- Finally it takes all this information and generates an email and sends it out to the user or target email address.
+- Finally it takes all this information and generates an email with gmail API and sends it out to the user or target email address.
 
 ## What is to come
 
